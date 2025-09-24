@@ -1,0 +1,42 @@
+/*
+Author: Léa Becquerel
+Date: 2025-09-24
+*/
+
+body {
+  background-color: #2a2929;
+  font-family: Courier, monospace;
+  margin: 25px;
+  font-size: 16px;
+}
+
+h1 {
+  color: #6eb0f2;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+h2 {
+  color: #6eb0f2;
+}
+
+p {
+  color: #ffffff;
+}
+
+a {
+  color: #05aa05;
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.1rem;
+}
+
+ol {
+  color: #ffffff;
+  list-style-type: decimal-leading-zero;
+}
+
+ul {
+  color: #ffffff;
+  list-style-type: circle;
+}
