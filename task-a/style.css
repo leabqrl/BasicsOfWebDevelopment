@@ -5,11 +5,12 @@ Date: 2025-09-22
 
 body {
   background-color: #2a2929;
-  font-family: Courier New, monospace;
+  font-family: Courier, monospace;
   font-size: 24px;
   color: #ffffff;
 }
 a {
   color: green;
   text-decoration: none;
+
 }
