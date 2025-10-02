@@ -1,0 +1,72 @@
+/*
+Author: Léa Becquerel
+Date: 2025-09-24
+*/
+
+body {
+    background: linear-gradient(135deg, #1e3a8a 50%, #3b82f6 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 25px;
+    font-size: 18px;
+    color: #000000;
+}
+
+.container {
+    background: #e4e4e4;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.media-section {
+    text-align: center;
+    margin: 100px;
+}
+
+.sources {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    border-left: 4px solid #3b82f6;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+    font-size: 2.4em;
+    color: #1e3a8a;
+}
+
+h2 {
+    color: #6eb0f2;
+    font-size: 1.6em;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.6em;
+}
+
+img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+audio, video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    display: block;
+}
+
+p {
+  color: #64748b;
+}
+
+a {
+  color: #1e3a8a;
+}
