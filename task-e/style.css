@@ -121,7 +121,7 @@ body {
 }
 .table thead th:nth-child(n+2),
 .table tbody td:nth-child(n+2) {
-  width: 15%;
+  width: 12%;
 }
 
 /* Center the day columns (Monâ€“Thu) */
