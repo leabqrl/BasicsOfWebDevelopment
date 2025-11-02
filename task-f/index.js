@@ -30,11 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .map((cb) => cb.value)
     );
 
-
-    if (checkedDays.size === 0) {
-        checkedDays.add("Tue");
-        checkedDays.add("Thu");
-    }
     // Create new table row
     const row = document.createElement("tr");
 
@@ -58,4 +53,5 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
     courseInput.focus();
   });
+
 });
