@@ -217,36 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return date.toLocaleDateString('fr-FR', options);
   }
 
-  function showCustomAlert(message, type = 'error') {
-    const alertDiv = document.createElement('div');
-    alertDiv.textContent = message;
-    
-    const bgColor = type === 'error' ? '#e74c3c' : '#27ae60';
-    
-    alertDiv.style.cssText = `
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: ${bgColor};
-      color: white;
-      padding: 15px 25px;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      font-weight: 600;
-      max-width: 300px;
-      white-space: pre-line;
-      animation: slideIn 0.3s ease;
-    `;
-    
-    document.body.appendChild(alertDiv);
-    
-    setTimeout(() => {
-      alertDiv.style.animation = 'slideOut 0.3s ease';
-      setTimeout(() => alertDiv.remove(), 300);
-    }, 4000);
-  }
-
   // Add CSS animations
   const style = document.createElement('style');
   style.textContent = `
@@ -291,4 +261,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(style);
 
   console.log('Script loaded successfully!');
+
 });
