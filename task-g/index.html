@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <!--
+    Author: Léa Becquerel
+    Date: 2025-11-06
+  -->
+
+  <header class="site-header">
+    <h1>Registeration page</h1>
+  </header>
+
+  <main class="content">
+    <!-- Top row split into two blocks -->
+    <div class="top-grid">
+      <!-- Student info (30%) -->
+      <section class="student-info" aria-label="Student information">
+        <h2 class="student-info-title">Information</h2>
+        <p><span class="student-name">Léa Becquerel</span></p>
+        <p><span class="student-group">NITS24K</span></p>
+      </section>
+
+      <!-- Controls (70%): add course + day marks -->
+      <section class="controls" aria-label="Add person row">
+        <h2 class="controls-title">Add Person</h2>
+
+        <form id="addPersonForm">
+          <input type="hidden" id="timestamp" name="timestamp">
+
+          <div class="form-row">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" required>
+          </div>
+          <span class="error-message" id="fullNameError"></span>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <span class="error-message" id="emailError"></span>
+
+          <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" 
+            placeholder="+358 40 123 4567 or 040 123 4567" 
+            required>
+          </div>
+          <div class="hint-text">
+            📱 Finnish format: <strong>+358401234567</strong> (international) or <strong>0401234567</strong> (national)
+          </div>
+          <span class="error-message" id="phoneError"></span>
+          
+          <div class="form-row">
+            <label for="birthDate">Birth Date</label>
+            <input id="birthDate" name="birthDate" type="date" required>
+          </div>
+          <span class="error-message" id="birthDateError"></span>
+
+          <fieldset class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required>
+                    I accept the terms and conditions
+                </label>
+          </fieldset>
+          <span class="error-message" id="termsError"></span>
+
+          <div class="form-row">
+            <button id="addRowBtn" type="submit" class="btn">Add row</button>
+            <button id="clearBtn" type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="table" id="timetable">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Birth Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+
+</html>
