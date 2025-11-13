@@ -1,6 +1,6 @@
 // index.js
 // Author: Léa Becquerel
-// Date: 2025-11-06
+// Date: 2025-11-13
 
 document.addEventListener("DOMContentLoaded", () => {
   // Get form and table elements
@@ -289,4 +289,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(style);
 
   console.log('Script loaded successfully!');
+
 });
