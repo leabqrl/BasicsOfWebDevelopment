@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Timetable</title>
+  <script src="index.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-blue': '#273e73',
+            'page-bg': '#f6f8fb',
+            'table-alt': '#eef3ff',
+            'border-gray': '#d0d7e2',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-[#f6f8fb] text-[#1f2937] m-0">
+  <!--
+    Author: Léa Becquerel
+    Date: 2025-11-13
+  -->
+
+  <header class="pt-8 pb-4 bg-[#273e73] text-white">
+    <h1 class="text-[1.6rem] m-0 text-center font-bold">Registeration page</h1>
+  </header>
+
+  <main class="mx-[15%] pt-4 pb-8 max-[860px]:mx-[5%] max-[768px]:mx-[5%] max-[640px]:mx-[1%]">
+    <!-- Top row split into two blocks -->
+    <div class="flex flex-col lg:flex-row gap-4 mb-4">
+      <!-- Student info (30%) -->
+      <section class="flex-[1_1_30%] bg-white border border-[#d0d7e2] rounded-lg p-4 shadow-[0_2px_10px_rgba(0,0,0,0.04)]" aria-label="Student information">
+        <h2 class="text-[1.1rem] font-bold mb-2 mt-0">Information</h2>
+        <p class="m-0"><span>Léa Becquerel</span></p>
+        <p class="mt-1 mb-0"><span>NITS24K</span></p>
+      </section>
+
+      <!-- Controls (70%): add course + day marks -->
+      <section class="flex-[1_1_70%] bg-white border border-[#d0d7e2] rounded-lg p-4 shadow-[0_2px_10px_rgba(0,0,0,0.04)]" aria-label="Add person row">
+        <h2 class="text-[1.1rem] font-bold mb-2 mt-0">Add Person</h2>
+
+        <form id="addPersonForm">
+          <input type="hidden" id="timestamp" name="timestamp">
+
+          <div class="flex gap-2 items-center my-2">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+          </div>
+          <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="fullNameError"></span>
+
+          <div class="flex gap-2 items-center my-2">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+          </div>
+          <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="emailError"></span>
+
+          <div class="flex gap-2 items-center my-2">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" 
+            placeholder="+358 40 123 4567 or 040 123 4567" 
+            required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+          </div>
+          <div class="text-[0.85rem] text-[#64748b] -mt-1 mb-2 pl-1 italic">
+            📱 Finnish format: <strong>+358401234567</strong> (international) or <strong>0401234567</strong> (national)
+          </div>
+          <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="phoneError"></span>
+          
+          <div class="flex gap-2 items-center my-2">
+            <label for="birthDate">Birth Date</label>
+            <input id="birthDate" name="birthDate" type="date" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+          </div>
+          <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="birthDateError"></span>
+
+          <fieldset class="my-2 mb-3 border border-dashed border-[#d0d7e2] rounded-md p-2 px-3 flex flex-wrap gap-3">
+                <label>
+                    <input type="checkbox" id="terms" name="terms" required class="mr-1">
+                    I accept the terms and conditions
+                </label>
+          </fieldset>
+          <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-mediumhidden" id="termsError"></span>
+
+          <div class="flex gap-2 items-center my-2">
+            <button id="addRowBtn" type="submit" class="px-[0.8rem] py-[0.45rem] border border-[#d0d7e2] rounded-md bg-[#f8fafc] hover:bg-[#eef2f7] cursor-pointer">Add row</button>
+            <button id="clearBtn" type="reset" class="px-[0.8rem] py-[0.45rem] border border-[#d0d7e2] rounded-md bg-white hover:bg-[#eef2f7] cursor-pointer">Clear</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white border border-[#d0d7e2] rounded-lg p-4 overflow-x-auto shadow-[0_2px_10px_rgba(0,0,0,0.06)]">
+      <table class="w-full border-collapse text-base text-center" id="timetable">
+        <thead>
+          <tr>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-left text-white">Timestamp</th>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Full Name</th>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Email</th>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Phone Number</th>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Birth Date</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+
+</html>
