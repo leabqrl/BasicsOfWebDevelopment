@@ -227,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cell3 = row.insertCell(2);
     const cell4 = row.insertCell(3);
     const cell5 = row.insertCell(4);
+    const cell6 = row.insertCell(5);
     
     // Apply classes to cells
     cell1.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%]';
@@ -234,12 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cell3.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
     cell4.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
     cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
+    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
         
     cell1.textContent = data.timestamp;
     cell2.textContent = data.fullName;
     cell3.textContent = data.email;
     cell4.textContent = data.phone;
     cell5.textContent = formatDate(data.birthDate);
+    cell6.textContent = data.terms ? 'Accepted' : 'Declined';
     
     // Add fade-in animation
     row.style.animation = 'fadeIn 0.5s ease';
@@ -291,3 +294,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('Script loaded successfully!');
 
 });
+
