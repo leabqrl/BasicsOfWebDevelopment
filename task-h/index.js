@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
     
-    // Validate Phone (Finnish format: +358 or 0, followed by 9-10 digits)
+    // Validate Phone (Finnish format)
     if (data.phone === '') {
       showError('phone', 'A phone number is required');
       isValid = false;
@@ -161,13 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // Remove all spaces, hyphens, and parentheses for validation
       const cleanPhone = data.phone.replace(/[\s\-\(\)]/g, '');
       
-      // Finnish phone formats:
-      // +358401234567 (international, 9-10 digits after +358)
-      // 0401234567 (national, starts with 0, 9-10 digits total)
-      const internationalPattern = /^\+358[1-9]\d{7,9}$/;
+      // Finnish phone format: 0401234567 (national, starts with 0, 9-10 digits total)
       const nationalPattern = /^0[1-9]\d{7,8}$/;
       
-      if (!internationalPattern.test(cleanPhone) && !nationalPattern.test(cleanPhone)) {
+      if (!nationalPattern.test(cleanPhone)) {
         showError('phone', 'Invalid format. Use +358401234567 or 0401234567');
         isValid = false;
       }
@@ -230,12 +227,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cell6 = row.insertCell(5);
     
     // Apply classes to cells
-    cell1.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%]';
-    cell2.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
-    cell3.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
-    cell4.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
-    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
-    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[20%] text-center';
+    cell1.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%]';
+    cell2.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
+    cell3.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
+    cell4.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
+    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
+    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[15%] text-center';
         
     cell1.textContent = data.timestamp;
     cell2.textContent = data.fullName;
@@ -294,4 +291,5 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('Script loaded successfully!');
 
 });
+
 
