@@ -51,21 +51,19 @@
 
           <div class="flex gap-2 items-center my-2">
             <label for="fullName">Full Name</label>
-            <input id="fullName" name="fullName" type="text" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+            <input id="fullName" name="fullName" type="text" required minlength="2" placeholder="Enter your full name" class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
           </div>
           <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="fullNameError"></span>
 
           <div class="flex gap-2 items-center my-2">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+            <input id="email" name="email" type="email" required placeholder="Enter your email" class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
           </div>
           <span class="block text-[#dc2626] text-[0.85rem] mt-1 mb-2 ml-1 min-h-[1.2rem] font-medium hidden" id="emailError"></span>
 
           <div class="flex gap-2 items-center my-2">
             <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" type="tel" 
-            placeholder="+358 40 123 4567 or 040 123 4567" 
-            required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
+            <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" placeholder="+358 40 123 4567 or 040 123 4567" required class="flex-1 px-[0.6rem] py-[0.45rem] border border-[#d0d7e2] rounded-md">
           </div>
           <div class="text-[0.85rem] text-[#64748b] -mt-1 mb-2 pl-1 italic">
             📱 Finnish format: <strong>+358401234567</strong> (international) or <strong>0401234567</strong> (national)
@@ -104,6 +102,7 @@
             <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Email</th>
             <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Phone Number</th>
             <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Birth Date</th>
+            <th class="bg-[#273e73] p-3 border-b border-[#d0d7e2] w-[20%] text-white">Terms</th>
           </tr>
         </thead>
         <tbody>
