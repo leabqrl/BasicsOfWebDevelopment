@@ -206,11 +206,6 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
     
-    // Show all errors if invalid
-    if (!isValid) {
-      showCustomAlert(errorMessages.join('\n'), 'error');
-    }
-    
     return isValid;
   }
 
@@ -232,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cell3.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
     cell4.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
     cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[17%] text-center';
-    cell5.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[15%] text-center';
+    cell6.className = 'p-[0.6rem_0.75rem] border-b border-[#d0d7e2] w-[15%] text-center';
         
     cell1.textContent = data.timestamp;
     cell2.textContent = data.fullName;
@@ -291,5 +286,6 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('Script loaded successfully!');
 
 });
+
 
 
