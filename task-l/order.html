@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audioloc Rental order</title>
+  <link rel="stylesheet" href="order.css">
+  <script src="order.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="media/logo.png" alt="Logo AudioLoc">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Products</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Intro courte -->
+        <section class="order-intro">
+            <div class="container">
+                <h1>Rental order request</h1>
+                <p>Use this form to request cameras, audio systems, lighting and accessories for your next event. Fill in your contact details and rental period, and our team will confirm availability and send you a quote by email.</p>
+            </div>
+        </section>
+
+        <!-- Formulaire de commande -->
+        <section class="order-form-section">
+        <div class="container">
+            <h2>Rental order form</h2>
+
+            <form id="rental-order-form" novalidate>
+            <!-- Infos client -->
+            <fieldset>
+                <legend>Customer information</legend>
+
+                <div class="form-row">
+                <label for="full-name">Full name *</label>
+                <input type="text" id="full-name" name="fullName" required>
+                <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row">
+                <label for="email">Email address *</label>
+                <input type="email" id="email" name="email" required>
+                <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row">
+                <label for="phone">Phone number *</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    pattern="^[0-9+\-\s]{6,20}$"
+                    placeholder="+358 40 123 4567"
+                >
+                <p class="error-message" aria-live="polite"></p>
+                </div>
+            </fieldset>
+
+            <!-- Détails de location -->
+            <fieldset>
+                <legend>Rental details</legend>
+
+                <div class="form-row">
+                    <label for="item">Item to rent *</label>
+                    <select id="item" name="item" required>
+                        <option value="">Select equipment…</option>
+                        <option value="4k-cinema-camera">4K Cinema Camera</option>
+                        <option value="dslr-video-kit">DSLR Video Kit</option>
+                        <option value="wireless-mic-set">Wireless Mic Set</option>
+                        <option value="portable-pa-system">Portable PA System</option>
+                        <option value="led-panel-kit">LED Panel Kit</option>
+                        <option value="camera-rig-monitor">Camera Rig & Monitor</option>
+                    </select>
+                    <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row">
+                    <label for="start-date">Start date *</label>
+                    <input type="date" id="start-date" name="startDate" required>
+                    <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row">
+                    <label for="end-date">End date *</label>
+                    <input type="date" id="end-date" name="endDate" required>
+                    <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row">
+                    <label for="quantity">Quantity *</label>
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        required
+                        min="1"
+                        max="20"
+                        step="1"
+                        value="1"
+                    >
+                    <p class="error-message" aria-live="polite"></p>
+                </div>
+            </fieldset>
+
+            <!-- Infos supplémentaires & consentement -->
+            <fieldset>
+                <legend>Additional information & consent</legend>
+
+                <div class="form-row">
+                    <label for="message">Message / special wishes</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Tell us about your event, venue, and technical needs…"
+                    ></textarea>
+                    <p class="error-message" aria-live="polite"></p>
+                </div>
+
+                <div class="form-row form-checkbox">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+                    <label for="terms">
+                        I accept the rental terms and privacy policy *
+                    </label>
+                    <p class="error-message" aria-live="polite"></p>
+
+                </div>
+
+                <div class="form-row form-checkbox">
+                <input
+                    type="checkbox"
+                    id="newsletter"
+                    name="newsletter"
+                >
+                <label for="newsletter">
+                    Subscribe to the AudioLoc newsletter (optional)
+                </label>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" class="btn">
+                Send rental request
+                </button>
+                <p id="form-success" class="form-success" aria-live="polite"></p>
+            </div>
+            </form>
+        </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>AudioLoc</h3>
+                    <p>Searisiskatu 1, 01213 Helsinki</p>
+                    <p>contact@audioloc.fi</p>
+                    <p>01 23 45 67 89</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow us</h4>
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal Notices</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">General Terms and Conditions</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AudioLoc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
